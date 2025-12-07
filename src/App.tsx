@@ -8,6 +8,10 @@ import { Nutrition } from './components/Nutrition';
 import { Alimentation } from './components/Alimentation';
 import { Newsletter } from './components/Newsletter';
 import { Search } from './components/Search';
+import { IASolsAgricoles } from './components/articles/IASolsAgricoles';
+import { AgricultureRegenerative } from './components/articles/AgricultureRegenerative';
+import { InnovationEntrepreneuriat } from './components/articles/InnovationEntrepreneuriat';
+import { NutritionSante } from './components/articles/NutritionSante';
 
 export default function App() {
   return (
@@ -22,6 +26,12 @@ export default function App() {
           <Route path="/alimentation-societe" element={<Alimentation />} />
           <Route path="/newsletter" element={<Newsletter />} />
           <Route path="/recherche" element={<Search />} />
+          
+          {/* Articles détaillés */}
+          <Route path="/article/ia-sols-agricoles" element={<IASolsAgricoles />} />
+          <Route path="/article/agriculture-regenerative" element={<AgricultureRegenerative />} />
+          <Route path="/article/innovation-entrepreneuriat" element={<InnovationEntrepreneuriat />} />
+          <Route path="/article/nutrition-sante" element={<NutritionSante />} />
         </Routes>
       </Layout>
     </Router>

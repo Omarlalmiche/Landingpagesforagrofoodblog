@@ -14,7 +14,8 @@ export function HomePage() {
       image: 'https://images.unsplash.com/photo-1744230673231-865d54a0aba4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydCUyMGFncmljdWx0dXJlJTIwc2Vuc29yc3xlbnwxfHx8fDE3NjQ5NDc3Nzd8MA&ixlib=rb-4.1.0&q=80&w=1080',
       excerpt: "Découvrez comment les capteurs IoT et l'intelligence artificielle transforment l'agriculture de précision.",
       date: '3 décembre 2025',
-      readTime: '5 min'
+      readTime: '5 min',
+      link: '/article/ia-sols-agricoles'
     },
     {
       id: 2,
@@ -23,25 +24,28 @@ export function HomePage() {
       image: 'https://images.unsplash.com/photo-1589923188900-85dae523342b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxvcmdhbmljJTIwZmFybSUyMHN1c3RhaW5hYmxlfGVufDF8fHx8MTc2NDk2MDMwNnww&ixlib=rb-4.1.0&q=80&w=1080',
       excerpt: 'Les pratiques ancestrales revisitées par la science moderne pour régénérer nos sols.',
       date: '1 décembre 2025',
-      readTime: '7 min'
+      readTime: '7 min',
+      link: '/article/agriculture-regenerative'
     },
     {
       id: 3,
-      title: "FoodTech : 2 milliards levés en 2024",
+      title: "Innovation & Entrepreneuriat : Transformez vos idées en succès",
       category: 'Innovation & entrepreneuriat',
       image: 'https://images.unsplash.com/photo-1728044849347-ea6ff59d98dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmb29kJTIwdGVjaG5vbG9neSUyMHN0YXJ0dXB8ZW58MXx8fHwxNzY0OTYzNDcyfDA&ixlib=rb-4.1.0&q=80&w=1080',
-      excerpt: "Panorama des levées de fonds et des tendances qui façonnent l'avenir de l'alimentation.",
+      excerpt: "Découvrez comment l'innovation stimule l'entrepreneuriat et comment transformer vos idées en entreprises prospères.",
       date: '28 novembre 2025',
-      readTime: '6 min'
+      readTime: '6 min',
+      link: '/article/innovation-entrepreneuriat'
     },
     {
       id: 4,
-      title: "Nutrition personnalisée : l'avenir de la santé",
+      title: "Nutrition et santé : comprendre le lien avec l'alimentation",
       category: 'Nutrition & santé',
       image: 'https://images.unsplash.com/photo-1670164747721-d3500ef757a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoZWFsdGh5JTIwbnV0cml0aW9uJTIwZm9vZHxlbnwxfHx8fDE3NjQ5NTE3ODN8MA&ixlib=rb-4.1.0&q=80&w=1080',
-      excerpt: "Comment la génomique et l'IA permettent des recommandations nutritionnelles sur mesure.",
+      excerpt: "Les principes essentiels d'une alimentation équilibrée et les bonnes pratiques validées scientifiquement.",
       date: '25 novembre 2025',
-      readTime: '8 min'
+      readTime: '8 min',
+      link: '/article/nutrition-sante'
     }
   ];
 
@@ -187,30 +191,36 @@ export function HomePage() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {recentArticles.map((article) => (
-            <article key={article.id} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow">
-              <div className="relative h-48 overflow-hidden">
-                <ImageWithFallback
-                  src={article.image}
-                  alt={article.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-green-600">
-                  {article.category}
+            <Link key={article.id} to={article.link} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow block">
+              <article>
+                <div className="relative h-48 overflow-hidden">
+                  <ImageWithFallback
+                    src={article.image}
+                    alt={article.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-4 left-4 bg-white px-3 py-1 rounded-full text-green-600">
+                    {article.category}
+                  </div>
                 </div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-neutral-900 mb-3 hover:text-green-600 transition-colors">
-                  {article.title}
-                </h3>
-                <p className="text-neutral-600 mb-4">
-                  {article.excerpt}
-                </p>
-                <div className="flex items-center justify-between text-neutral-500">
-                  <span>{article.date}</span>
-                  <span>{article.readTime}</span>
+                <div className="p-6">
+                  <h3 className="text-neutral-900 mb-3 hover:text-green-600 transition-colors">
+                    {article.title}
+                  </h3>
+                  <p className="text-neutral-600 mb-4">
+                    {article.excerpt}
+                  </p>
+                  <div className="flex items-center justify-between text-neutral-500 mb-4">
+                    <span>{article.date}</span>
+                    <span>{article.readTime}</span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 text-green-600 hover:text-green-700">
+                    Lire l'article
+                    <ArrowRight className="w-5 h-5" />
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+            </Link>
           ))}
         </div>
       </section>
